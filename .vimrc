@@ -6,7 +6,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 " alternatively, pass a path where Vundle should install bundles
 "let path = '~/some/path/here'
@@ -53,6 +53,7 @@ Bundle 'wting/rust.vim'
 Bundle 'xolox/vim-easytags'
 Bundle 'xolox/vim-misc'
 Bundle 'rizzatti/dash.vim'
+Bundle 'vim-scripts/EasyGrep'
 
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
@@ -231,3 +232,27 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute", "trimming emp
 autocmd BufReadPre,FileReadPre * :DetectIndent
 " 4 spaces for rust files
 autocmd FileType rust setlocal shiftwidth=4 softtabstop=4 expandtab
+
+" EasyGrep options
+let g:EasyGrepFileAssociations='/Users/maxjankov/.vim/bundle/EasyGrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepMode=2
+let g:EasyGrepCommand=0
+let g:EasyGrepRecursive=1
+let g:EasyGrepSearchCurrentBufferDir=0
+let g:EasyGrepIgnoreCase=0
+let g:EasyGrepHidden=0
+let g:EasyGrepFilesToExclude=''
+let g:EasyGrepAllOptionsInExplorer=1
+let g:EasyGrepWindow=0
+let g:EasyGrepReplaceWindowMode=0
+let g:EasyGrepOpenWindowOnMatch=1
+let g:EasyGrepEveryMatch=0
+let g:EasyGrepJumpToMatch=1
+let g:EasyGrepInvertWholeWord=0
+let g:EasyGrepFileAssociationsInExplorer=0
+let g:EasyGrepExtraWarnings=1
+let g:EasyGrepOptionPrefix='<leader>vy'
+let g:EasyGrepReplaceAllPerFile=0
+
+" JSON beautify command
+function! FormatJSON() :%!python -m json.tool endufction
